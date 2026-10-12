@@ -1,0 +1,8 @@
+# Ignore local configs and keys
+*.p8
+*.pem
+.env
+.venv/
+__pycache__/
+*.pyc
+.DS_Store

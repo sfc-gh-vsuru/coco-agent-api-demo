@@ -41,4 +41,4 @@ The connection name can be changed in the sidebar (default `coco_api`).
 
 It authenticates with the PAT (`Authorization: Bearer ...`, token type `PROGRAMMATIC_ACCESS_TOKEN`) and renders `response.text.delta` SSE events as they arrive.
 
-> Note: `always_allow` lets the agent execute tools without approval, using your role's privileges. Use a least-privilege role for demos. The app binds to `localhost` only (`.streamlit/config.toml`) — don't expose it on a shared network, since anyone who can reach it can run the agent with your PAT.
+> Note: `always_allow` lets the agent execute tools without approval, using your role's privileges. Use a least-privilege role for demos. The app binds to `localhost` only.

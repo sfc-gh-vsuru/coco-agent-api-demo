@@ -1,0 +1,7 @@
+[server]
+# Only reachable from this machine; the agent runs with your PAT and always_allow
+address = "localhost"
+headless = true
+
+[browser]
+gatherUsageStats = false

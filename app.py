@@ -144,13 +144,13 @@ def stream_agent_response(conversation: list[dict], conn_name: str):
         },
         json=body,
         stream=True,
+        timeout=(10, 600),  # (connect, read between SSE events)
     )
 
     if resp.status_code != 200:
         yield f"**API Error {resp.status_code}:** {resp.text[:500]}"
         return
 
-    collected = []
     current_event_type = None
     for line in resp.iter_lines(decode_unicode=True):
         if not line:
@@ -178,7 +178,6 @@ def stream_agent_response(conversation: list[dict], conn_name: str):
         if current_event_type == "response.text.delta":
             text = event.get("text", "")
             if text:
-                collected.append(text)
                 yield text
 
 
